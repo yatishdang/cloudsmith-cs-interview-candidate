@@ -3,7 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-
+name = "interview"  # Issue 1
+version = "0.0.1"  # Issue 2
 authors = [
   { name="Example Author", email="author@example.com" },
 ]
@@ -15,3 +16,6 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ] 
+
+[tool.hatch.build.targets.wheel]  # Issue 3
+packages = ["src/example_package"]
