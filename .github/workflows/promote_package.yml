@@ -56,9 +56,9 @@ jobs:
       - name: Tag Package as Ready for Production
         run: |
           echo "Tagging package $PACKAGE_IDENTIFIER with 'ready-for-production'"
-          cloudsmith tags set \
-            ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_STAGING_REPO }} \
-            --package "$PACKAGE_IDENTIFIER" \
+          cloudsmith tags add OWNER/REPOSITORY/IDENTIFIER TAG1,TAG2,TAG3
+          cloudsmith tags add \
+            ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_STAGING_REPO }}/$PACKAGE_IDENTIFIER \
             ready-for-production \
             --api-key $CLOUDSMITH_API_KEY          
       
